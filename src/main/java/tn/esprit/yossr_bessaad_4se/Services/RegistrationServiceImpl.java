@@ -3,7 +3,9 @@ package tn.esprit.yossr_bessaad_4se.Services;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import tn.esprit.yossr_bessaad_4se.entities.Registration;
+import tn.esprit.yossr_bessaad_4se.entities.Skier;
 import tn.esprit.yossr_bessaad_4se.repositories.IRegistrationRepository;
+import tn.esprit.yossr_bessaad_4se.repositories.ISkierRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,6 +14,7 @@ import java.util.Optional;
 @Service
 public class RegistrationServiceImpl implements IRegistrationServices {
     private  IRegistrationRepository registrationRepository;
+    private final ISkierRepository skierRepository;
 
     @Override
     public Registration addRegistration(Registration registration) {
@@ -37,5 +40,15 @@ public class RegistrationServiceImpl implements IRegistrationServices {
     @Override
     public void updateRegistration(Registration registration) {
         registrationRepository.save(registration);
+    }
+
+    @Override
+    public Registration addAndAssignToSkier(Registration reg, Long numSkier) {
+        Skier skier = skierRepository.findById(numSkier).orElse( null) ;
+        reg.setSkier(skier);
+
+        // Save and return the registration with the skier assigned
+        return registrationRepository.save(reg);
+
     }
 }

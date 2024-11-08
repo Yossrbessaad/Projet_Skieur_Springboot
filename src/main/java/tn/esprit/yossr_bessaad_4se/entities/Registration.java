@@ -6,11 +6,11 @@ import lombok.experimental.FieldDefaults;
 
 import java.io.Serializable;
 
-@Setter
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@Setter
 @Getter
 public class Registration implements Serializable {
     @Id

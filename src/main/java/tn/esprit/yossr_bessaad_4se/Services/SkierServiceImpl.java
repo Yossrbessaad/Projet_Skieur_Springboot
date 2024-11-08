@@ -11,7 +11,7 @@ import java.util.Optional;
 @AllArgsConstructor
 @Service
 public class SkierServiceImpl implements ISkierServices {
-    private  ISkierRepository skierRepository;
+    private  final ISkierRepository skierRepository;
 
     @Override
     public Skier addSkier(Skier skier) {

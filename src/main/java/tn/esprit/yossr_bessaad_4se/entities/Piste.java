@@ -18,12 +18,12 @@ import java.util.Set;
 public class Piste implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long numPiste;
-    private String namePiste;
+     long numPiste;
+     String namePiste;
     @Enumerated(EnumType.STRING)
-    private Color color;
-    private int length;
-    private int slope;
+     Color color;
+     int length;
+     int slope;
 
     @ManyToMany
     Set<Skier> skiers;

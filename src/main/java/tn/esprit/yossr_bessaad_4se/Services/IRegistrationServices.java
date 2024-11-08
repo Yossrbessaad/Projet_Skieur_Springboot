@@ -10,4 +10,5 @@ public interface IRegistrationServices {
     List<Registration> retrieveAllRegistrations();
     void deleteRegistration(Long numRegistration);
     void updateRegistration(Registration registration);
+     Registration addAndAssignToSkier(Registration reg,Long numSkier);
 }

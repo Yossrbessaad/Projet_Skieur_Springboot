@@ -21,10 +21,12 @@ public class PisteRestController {
         return pisteService.addPiste(piste);
     }
 
+
     @GetMapping("/{numPiste}")
-    public Piste retrievePiste(@PathVariable Long id) {
-        return pisteService.retrivePiste(id);
+    public Piste retrievePiste(@PathVariable("numPiste") Long numPiste) {
+        return pisteService.retrivePiste(numPiste);
     }
+
 
     @GetMapping
     public List<Piste> retrieveAllPistes() {
