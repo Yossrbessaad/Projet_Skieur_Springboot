@@ -19,12 +19,12 @@ import java.util.Set;
 public class Skier implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long numSkier;
-    private  String firstName;
-    private String lastName;
+     Long numSkier;
+      String firstName;
+     String lastName;
     @Column(nullable = false)
-    private LocalDate dateOfBirth;
-    private String city;
+     LocalDate dateOfBirth;
+     String city;
 
     @OneToOne(cascade ={ CascadeType.PERSIST,CascadeType.REMOVE})
     Subscription subscription;

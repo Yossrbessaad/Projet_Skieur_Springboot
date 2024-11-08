@@ -38,4 +38,8 @@ public class RegistrationRestController {
     public void updateRegistration(@RequestBody Registration registration) {
         registrationService.updateRegistration(registration);
     }
+    @PostMapping("/assign-skier/{numSkier}")
+    public Registration addAndAssignToSkier(@RequestBody Registration registration,@PathVariable Long numSkier) {
+        return registrationService.addAndAssignToSkier(registration, numSkier);
+    }
 }

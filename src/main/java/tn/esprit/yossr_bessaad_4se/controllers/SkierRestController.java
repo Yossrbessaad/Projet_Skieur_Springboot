@@ -12,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 public class SkierRestController {
 
-    private  SkierServiceImpl skierService;
+    private final SkierServiceImpl skierService; // Use final for immutability
 
     @PostMapping
     public Skier addSkier(@RequestBody Skier skier) {
