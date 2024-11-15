@@ -42,4 +42,10 @@ public class RegistrationRestController {
     public Registration addAndAssignToSkier(@RequestBody Registration registration,@PathVariable Long numSkier) {
         return registrationService.addAndAssignToSkier(registration, numSkier);
     }
+    @PutMapping("/assignToCourse/{numReg}/{numCourse}")
+        public Registration assignToCourse(@PathVariable Long numReg,@PathVariable Long numCourse){
+        return registrationService.assignToCourse(numReg,numCourse);
+    }
+
+
 }

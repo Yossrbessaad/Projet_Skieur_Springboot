@@ -1,5 +1,6 @@
 package tn.esprit.yossr_bessaad_4se.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -17,6 +18,7 @@ public class Registration implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
      Long numRegistration;
      int numWeek;
+
      @ManyToOne
     Skier skier;
      @ManyToOne

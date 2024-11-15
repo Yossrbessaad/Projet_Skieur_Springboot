@@ -3,6 +3,7 @@ package tn.esprit.yossr_bessaad_4se.Services;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import tn.esprit.yossr_bessaad_4se.entities.Course;
+import tn.esprit.yossr_bessaad_4se.enums.Support;
 import tn.esprit.yossr_bessaad_4se.repositories.ICourseRepository;
 
 import java.util.List;
@@ -38,4 +39,12 @@ public class CourseServiceImpl implements ICourseServices {
     public void updateCourse(Course course) {
         iCourseRepository.save(course);
     }
+
+    @Override
+    public List<Course> getCourseBySupport(Support support) {
+        return iCourseRepository.findBySupport(support);
+    }
+
+
+
 }

@@ -2,10 +2,12 @@ package tn.esprit.yossr_bessaad_4se.controllers;
 
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import tn.esprit.yossr_bessaad_4se.Services.IInstructorServices;
 import tn.esprit.yossr_bessaad_4se.Services.InstructorServiceImpl;
 import tn.esprit.yossr_bessaad_4se.entities.Instructor;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/api/instructors")
@@ -38,4 +40,10 @@ public class InstructorRestController {
     public void updateInstructor(@RequestBody Instructor instructor) {
         instructorService.updateInstructor(instructor);
     }
+    @PostMapping("/addAndAssignToCourses/{numCourses}")
+    public Instructor addAndAssignToCourses(@RequestBody Instructor instructor, @PathVariable Set<Long> numCourses) {
+        return instructorService.addAndAssignToCourses(instructor,numCourses);
+
+    }
+
 }

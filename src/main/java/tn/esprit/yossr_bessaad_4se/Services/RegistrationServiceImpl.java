@@ -2,8 +2,10 @@ package tn.esprit.yossr_bessaad_4se.Services;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import tn.esprit.yossr_bessaad_4se.entities.Course;
 import tn.esprit.yossr_bessaad_4se.entities.Registration;
 import tn.esprit.yossr_bessaad_4se.entities.Skier;
+import tn.esprit.yossr_bessaad_4se.repositories.ICourseRepository;
 import tn.esprit.yossr_bessaad_4se.repositories.IRegistrationRepository;
 import tn.esprit.yossr_bessaad_4se.repositories.ISkierRepository;
 
@@ -15,6 +17,7 @@ import java.util.Optional;
 public class RegistrationServiceImpl implements IRegistrationServices {
     private  IRegistrationRepository registrationRepository;
     private final ISkierRepository skierRepository;
+    private final ICourseRepository courseRepository ;
 
     @Override
     public Registration addRegistration(Registration registration) {
@@ -50,5 +53,13 @@ public class RegistrationServiceImpl implements IRegistrationServices {
         // Save and return the registration with the skier assigned
         return registrationRepository.save(reg);
 
+    }
+
+    @Override
+    public Registration assignToCourse(Long numReg, Long numCourse) {
+        Registration registration=registrationRepository.findById(numReg).orElse(null);
+        Course course=courseRepository.findById(numCourse).orElse(null);
+        registration.setCourse(course);
+        return registrationRepository.save(registration);
     }
 }

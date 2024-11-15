@@ -3,6 +3,8 @@ package tn.esprit.yossr_bessaad_4se.entities;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -25,4 +27,6 @@ public class Instructor implements Serializable {
      LocalDate dateOfHire;
      @OneToMany
      List<Course> courses;
+
+
 }

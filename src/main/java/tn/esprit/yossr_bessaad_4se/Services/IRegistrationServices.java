@@ -11,4 +11,5 @@ public interface IRegistrationServices {
     void deleteRegistration(Long numRegistration);
     void updateRegistration(Registration registration);
      Registration addAndAssignToSkier(Registration reg,Long numSkier);
+     Registration assignToCourse(Long numReg, Long numCourse);
 }

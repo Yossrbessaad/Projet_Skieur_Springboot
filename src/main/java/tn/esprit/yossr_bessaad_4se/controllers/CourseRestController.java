@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.yossr_bessaad_4se.Services.CourseServiceImpl;
 import tn.esprit.yossr_bessaad_4se.entities.Course;
+import tn.esprit.yossr_bessaad_4se.enums.Support;
 
 import java.util.List;
 
@@ -14,7 +15,7 @@ public class CourseRestController {
 
     private  CourseServiceImpl courseService;
 
-    @PostMapping
+    @PostMapping("")
     public Course addCourse(@RequestBody Course course) {
         return courseService.addCourse(course);
     }
@@ -37,5 +38,9 @@ public class CourseRestController {
     @PutMapping
     public void updateCourse(@RequestBody Course course) {
         courseService.updateCourse(course);
+    }
+    @GetMapping("/support/{support}")
+    public List<Course> getCoursesBySupport(@PathVariable Support support) {
+        return courseService.getCourseBySupport(support);
     }
 }
