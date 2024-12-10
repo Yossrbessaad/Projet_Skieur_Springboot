@@ -38,4 +38,8 @@ public class SkierRestController {
     public void updateSkier(@RequestBody Skier skier) {
         skierService.updateSkier(skier);
     }
+    @PostMapping("/assign/{numSkier}/{numPiste}")
+    public Skier assignSkierToPiste(@PathVariable Long numSkier, @PathVariable Long numPiste) {
+        return skierService.assignSkierToPiste(numSkier, numPiste);
+    }
 }

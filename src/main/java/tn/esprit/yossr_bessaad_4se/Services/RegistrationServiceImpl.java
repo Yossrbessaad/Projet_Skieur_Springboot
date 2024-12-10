@@ -50,7 +50,6 @@ public class RegistrationServiceImpl implements IRegistrationServices {
         Skier skier = skierRepository.findById(numSkier).orElse( null) ;
         reg.setSkier(skier);
 
-        // Save and return the registration with the skier assigned
         return registrationRepository.save(reg);
 
     }
